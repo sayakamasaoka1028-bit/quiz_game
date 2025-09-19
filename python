@@ -1,0 +1,61 @@
+# -*- coding: utf-8 -*-
+import pygame
+
+pygame.init()  # Pygame初期化
+
+# 画面設定
+screen = pygame.display.set_mode((640, 480))
+pygame.display.set_caption("簡単クイズゲーム")
+clock = pygame.time.Clock()
+
+# フォント設定（日本語・数字対応）
+font = pygame.font.Font("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 32)
+
+# クイズデータ
+quizzes = [
+    {"question": "1 + 1 = ?", "answer": "2"},
+    {"question": "2 + 3 = ?", "answer": "5"},
+    {"question": "5 - 2 = ?", "answer": "3"}
+]
+
+quiz_index = 0
+user_text = ""
+score = 0
+input_active = True
+
+running = True
+while running:
+    screen.fill((0, 0, 0))  # 背景黒
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.KEYDOWN and input_active:
+            if event.key == pygame.K_RETURN:
+                # 答え合わせ
+                if user_text.strip() == quizzes[quiz_index]["answer"]:
+                    score += 1
+                user_text = ""
+                quiz_index += 1
+                if quiz_index >= len(quizzes):
+                    input_active = False
+            elif event.key == pygame.K_BACKSPACE:
+                user_text = user_text[:-1]
+            else:
+                # 文字列追加（日本語・数字対応）
+                user_text += event.unicode
+
+    # クイズ表示
+    if input_active:
+        question_surface = font.render(quizzes[quiz_index]["question"], True, (255, 255, 255))
+        input_surface = font.render("答え: " + user_text, True, (255, 255, 0))
+        screen.blit(question_surface, (50, 50))
+        screen.blit(input_surface, (50, 120))
+    else:
+        end_surface = font.render(f"ゲーム終了！スコア: {score}/{len(quizzes)}", True, (0, 255, 0))
+        screen.blit(end_surface, (50, 50))
+
+    pygame.display.flip()
+    clock.tick(30)
+
+pygame.quit()
