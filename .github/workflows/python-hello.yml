@@ -1,17 +1,18 @@
-name: Python Hello
+name: Run Hello Script
 
+# いつワークフローを実行するか
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ main ]  # main に push されたとき
+  workflow_dispatch:     # 手動でトリガー可能
 
 jobs:
   run-hello:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -19,4 +20,4 @@ jobs:
         python-version: '3.x'
 
     - name: Run hello.py
-      run: python hello.py
+      run: python3 hello.py
