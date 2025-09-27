@@ -23,3 +23,4 @@ Pygame で作ったプログラミングクイズゲーム。解説付き。
    ```bash
    python quiz_game.py
    ```
+# test trigger
