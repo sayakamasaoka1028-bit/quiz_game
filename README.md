@@ -2,7 +2,7 @@
 
 Pygame で作ったプログラミングクイズゲーム。解説付き。
 
-このリポジトリは、Python の Pygame を使って作成した**プログラミングクイズ**です。  
+このリポジトリは、Python の Pygame を使って作成した**プログラミングクイズ**です。 
 正解・不正解の判定や簡単な解説も表示されます。
 
 ---
@@ -11,6 +11,7 @@ Pygame で作ったプログラミングクイズゲーム。解説付き。
 
 ![Pages build](https://github.com/sayakamasaoka1028-bit/quiz_game/actions/workflows/pages-build-deployment.yml/badge.svg)
 ![Python Test](https://github.com/sayakamasaoka1028-bit/quiz_game/actions/workflows/python-tests.yml/badge.svg)
+![Run Hello Script](https://github.com/sayakamasaoka1028-bit/quiz_game/actions/workflows/python-hello.yml/badge.svg)
 ---
 
 ## 遊び方
