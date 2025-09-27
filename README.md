@@ -9,7 +9,6 @@ Pygame で作ったプログラミングクイズゲーム。解説付き。
 
 ## ワークフロー
 
-![Python Test](https://github.com/sayakamasaoka1028-bit/quiz_game/actions/workflows/python-test.yml/badge.svg)
 ![Pages build](https://github.com/sayakamasaoka1028-bit/quiz_game/actions/workflows/pages-build-deployment.yml/badge.svg)
 ![Python Test](https://github.com/sayakamasaoka1028-bit/quiz_game/actions/workflows/python-tests.yml/badge.svg)
 ---
