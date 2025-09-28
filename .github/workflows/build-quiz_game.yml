@@ -1,14 +1,13 @@
-name: Build Quiz Game
+name: Build Quiz Game EXE
 
-# いつワークフローを実行するか
 on:
   push:
-    branches: [ main ]  # main に push されたとき
-  workflow_dispatch:     # 手動でも実行可能
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build-windows-exe:
+    runs-on: windows-latest
 
     steps:
     - name: Checkout repository
@@ -24,13 +23,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install pygame pyinstaller
 
-    - name: Build exe with PyInstaller
-      run: |
-        pyinstaller --onefile quiz_game.py
-        ls -l dist/
+    - name: Build EXE
+      run: pyinstaller --onefile quiz_game_gui.py
 
-    - name: Upload exe as artifact
+    - name: Upload EXE
       uses: actions/upload-artifact@v3
       with:
-        name: quiz_game-exe
-        path: dist/quiz_game
+        name: quiz_game_gui-exe
+        path: dist/quiz_game_gui.exe
