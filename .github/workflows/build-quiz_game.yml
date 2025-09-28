@@ -26,8 +26,8 @@ jobs:
     - name: Build EXE
       run: pyinstaller --onefile quiz_game_gui.py
 
-    - name: Upload EXE
-      uses: actions/upload-artifact@v3
+    - name: Upload exe
+      uses: actions/upload-artifact@v4
       with:
-        name: quiz_game_gui-exe
+        name: quiz_game_gui
         path: dist/quiz_game_gui.exe
